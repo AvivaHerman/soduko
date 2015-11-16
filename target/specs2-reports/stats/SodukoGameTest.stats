@@ -1,0 +1,35 @@
+<SodukoGameTest-results timestamp="1447565858664"><result location="SodukoGameTest (SodukoGameTest.scala:6)" id="1785537591"><stats time="12" expectations="1" failures="1" examples="1"></stats></result>
+</SodukoGameTest-results>
+<SodukoGameTest-stats timestamp="1447565858672"><stats time="15" expectations="1" failures="1" examples="1"></stats></SodukoGameTest-stats>
+<SodukoGameTest-stats timestamp="1447565879946"><stats time="14" expectations="1" successes="1" examples="1"><trend><stats time="14" failures="-1" successes="1"></stats></trend></stats></SodukoGameTest-stats>
+<SodukoGameTest-stats timestamp="1447566734698"><stats time="53" expectations="1" successes="1" examples="1"></stats></SodukoGameTest-stats>
+<SodukoGameTest-stats timestamp="1447566777853"><stats time="46" expectations="1" successes="1" examples="1"></stats></SodukoGameTest-stats>
+<SodukoGameTest-stats timestamp="1447566878227"><stats time="45" expectations="1" successes="1" examples="1"></stats></SodukoGameTest-stats>
+<SodukoGameTest-stats timestamp="1447567992765"><stats time="20" expectations="1" successes="1" examples="1"></stats></SodukoGameTest-stats>
+<SodukoGameTest-stats timestamp="1447568006380"><stats time="15" expectations="1" successes="1" examples="1"></stats></SodukoGameTest-stats>
+<SodukoGameTest-stats timestamp="1447568061970"><stats time="12" expectations="1" successes="1" examples="1"></stats></SodukoGameTest-stats>
+<SodukoGameTest-stats timestamp="1447568170394"><stats time="14" expectations="1" successes="1" examples="1"></stats></SodukoGameTest-stats>
+<SodukoGameTest-stats timestamp="1447568202669"><stats time="11" expectations="1" successes="1" examples="1"></stats></SodukoGameTest-stats>
+<SodukoGameTest-stats timestamp="1447568242353"><stats time="12" expectations="1" successes="1" examples="1"></stats></SodukoGameTest-stats>
+<SodukoGameTest-stats timestamp="1447568313556"><stats time="16" expectations="1" successes="1" examples="1"></stats></SodukoGameTest-stats>
+<SodukoGameTest-results timestamp="1447569408773"><result location="SodukoGameTest (SodukoGameTest.scala:14)" id="1785537591"><stats time="44" expectations="1" failures="1" examples="1"></stats></result>
+</SodukoGameTest-results>
+<SodukoGameTest-stats timestamp="1447569408782"><stats time="11" expectations="2" failures="1" successes="1" examples="2"><trend><stats time="11" expectations="1" failures="1" examples="1"></stats></trend></stats></SodukoGameTest-stats>
+<SodukoGameTest-results timestamp="1447654304507"><result location="SodukoGameTest (SodukoGameTest.scala:6)" id="335888164"><stats time="47" expectations="1" failures="1" examples="1"></stats></result>
+<result location="SodukoGameTest (SodukoGameTest.scala:14)" id="1785537591"><stats time="46" expectations="1" failures="1" examples="1"></stats></result>
+</SodukoGameTest-results>
+<SodukoGameTest-stats timestamp="1447654304517"><stats time="21" expectations="2" failures="2" examples="2"><trend><stats time="21" failures="1" successes="-1"></stats></trend></stats></SodukoGameTest-stats>
+<SodukoGameTest-stats timestamp="1447654347721"><stats time="11" expectations="2" successes="2" examples="2"><trend><stats time="11" failures="-2" successes="2"></stats></trend></stats></SodukoGameTest-stats>
+<SodukoGameTest-stats timestamp="1447654385091"><stats time="12" expectations="2" successes="2" examples="2"></stats></SodukoGameTest-stats>
+<SodukoGameTest-results timestamp="1447654475337"><result location="SodukoGameTest (SodukoGameTest.scala:14)" id="1785537591"><stats time="52" expectations="1" failures="1" examples="1"></stats></result>
+</SodukoGameTest-results>
+<SodukoGameTest-stats timestamp="1447654475348"><stats time="12" expectations="2" failures="1" successes="1" examples="2"><trend><stats time="12" failures="1" successes="-1"></stats></trend></stats></SodukoGameTest-stats>
+<SodukoGameTest-results timestamp="1447654537083"><result location="SodukoGameTest (SodukoGameTest.scala:14)" id="1785537591"><stats time="37" expectations="1" failures="1" examples="1"></stats></result>
+</SodukoGameTest-results>
+<SodukoGameTest-stats timestamp="1447654537094"><stats time="12" expectations="2" failures="1" successes="1" examples="2"></stats></SodukoGameTest-stats>
+<SodukoGameTest-stats timestamp="1447655313132"><stats time="13" expectations="2" successes="2" examples="2"><trend><stats time="13" failures="-1" successes="1"></stats></trend></stats></SodukoGameTest-stats>
+<SodukoGameTest-stats timestamp="1447655444663"><stats time="11" expectations="2" successes="2" examples="2"></stats></SodukoGameTest-stats>
+<SodukoGameTest-stats timestamp="1447655487582"><stats time="13" expectations="2" successes="2" examples="2"></stats></SodukoGameTest-stats>
+<SodukoGameTest-results timestamp="1447655791856"><result location="SodukoGameTest (SodukoGameTest.scala:36)" id="0"><stats pending="1" time="4" expectations="1" examples="1"></stats></result>
+</SodukoGameTest-results>
+<SodukoGameTest-stats timestamp="1447655791868"><stats pending="1" time="14" expectations="3" successes="2" examples="3"><trend><stats pending="1" time="14" expectations="1" examples="1"></stats></trend></stats></SodukoGameTest-stats>
