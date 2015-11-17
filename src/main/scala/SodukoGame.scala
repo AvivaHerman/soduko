@@ -5,4 +5,6 @@ class SodukoGame(entries: Entry*) {
 
   def printBoard: String = board.printBoard
 
+  def isSolved: Boolean = board.isSolved
+
 }
