@@ -21,5 +21,5 @@ case class SodukoOptions(is: Seq[SodukoVal]) extends SodukoEntry {
 }
 
 object SodukoOptions {
-  def apply(seed: Int): SodukoOptions = SodukoOptions((1 to seed^2).toSeq.map(SodukoVal))
+  def apply(seed: Int): SodukoOptions = SodukoOptions((1 to (seed * seed)).toSeq.map(SodukoVal))
 }

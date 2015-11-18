@@ -1,7 +1,7 @@
 class SodukoBoard(private var board: Map[Square, SodukoEntry] = Map()) {
 
   val seed = 3
-  val boardSize = seed ^ 2
+  val boardSize = seed * seed
 
   private val set = (1 to boardSize).toSet
 
@@ -18,7 +18,7 @@ class SodukoBoard(private var board: Map[Square, SodukoEntry] = Map()) {
     boardRemoveOptionFromSquare(entry)
   }
 
-  def printBoard: String = {
+  override def toString: String = {
     val rowSeparator = "\n" + s"|${"_" * 19}" * 9 + "|\n"
 
     (0 until boardSize).map { row =>
@@ -31,20 +31,20 @@ class SodukoBoard(private var board: Map[Square, SodukoEntry] = Map()) {
   def isSolved: Boolean =
     allRowsAreValid && allColsAreValid && allSquaresAreValid
 
-  private def allRowsAreValid: Boolean =
+  def allRowsAreValid: Boolean =
     (0 until boardSize).forall(rowIsValid)
 
-  private def rowIsValid(row: Int): Boolean =
+  def rowIsValid(row: Int): Boolean =
     isValidSet(for (i <- 0 until boardSize) yield getEntry(Square(row, i)).getValue)
 
-  private def allColsAreValid: Boolean =
+  def allColsAreValid: Boolean =
     (0 until boardSize).forall(colIsValid)
 
-  private def colIsValid(col: Int): Boolean =
+  def colIsValid(col: Int): Boolean =
     isValidSet(for (i <- 0 until boardSize) yield getEntry(Square(i, col)).getValue)
 
 
-  private def allSquaresAreValid: Boolean = {
+  def allSquaresAreValid: Boolean = {
     {
       for (
         i <- 0 until boardSize by seed;
@@ -53,12 +53,12 @@ class SodukoBoard(private var board: Map[Square, SodukoEntry] = Map()) {
     }.forall(squareIsValid)
   }
 
-  private def squareIsValid(square: Square): Boolean = {
+  def squareIsValid(square: Square): Boolean = {
     isValidSet(
       for (
-        i <- 0 until seed;
-        j <- 0 until seed
-      ) yield getEntry(square).getValue)
+        i <- square.row until square.row + seed;
+        j <- square.col until square.col + seed
+      ) yield getEntry(Square(i,j)).getValue)
   }
 
   private def isValidSet(values: Seq[Option[Int]]) = values.filter(_.nonEmpty).map(_.get).toSet == set

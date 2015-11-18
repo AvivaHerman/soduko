@@ -18,9 +18,7 @@ class SodukoGameTest extends SpecificationWithJUnit {
         case (n, m) => board = board.updated(Square(n,m) ,SodukoOptions((1 to 9).map(SodukoVal)))
       }
 
-//      println(game.printBoard)
-
-      game.printBoard must beEqualTo(new SodukoBoard(board).printBoard)
+      game.toString must beEqualTo(new SodukoBoard(board).toString)
     }
   }
 
