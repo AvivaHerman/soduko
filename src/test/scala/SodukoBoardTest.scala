@@ -27,6 +27,12 @@ class SodukoBoardTest extends Specification {
 
       board.squareIsValid(Square(0, 0)) must beTrue
     }
+
+    "set entry to soduku value if it has only one option value" in new Context {
+      board.setEntries((1 to 8).map(i => Entry(Square(0, i - 1), SodukoVal(i))) : _*)
+
+      board.getEntry(Square(0,8)) must beEqualTo(SodukoVal(9))
+    }
   }
 
   abstract class Context extends Scope {

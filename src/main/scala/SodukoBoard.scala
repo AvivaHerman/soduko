@@ -9,7 +9,7 @@ class SodukoBoard(private var board: Map[Square, SodukoEntry] = Map()) {
 
   def setEntries(entries: Entry*) = entries.foreach(setEntry)
 
-  def setEntry(entry: Entry) = {
+  def setEntry(entry: Entry): Unit = {
     import entry._
     board = board.updated(square, value)
 
@@ -63,10 +63,15 @@ class SodukoBoard(private var board: Map[Square, SodukoEntry] = Map()) {
 
   private def isValidSet(values: Seq[Option[Int]]) = values.filter(_.nonEmpty).map(_.get).toSet == set
 
-  private def boardRemoveOptionFrom(entry: Entry) =
+  private def boardRemoveOptionFrom(entry: Entry): Unit =
     getEntry(entry.square) match {
-      case SodukoOptions(is) =>
-        board = board.updated(entry.square, SodukoOptions(is.diff(Seq(entry.value))))
+      case SodukoOptions(options) =>
+        options.diff(Seq(entry.value)).toList match {
+          case lastOption :: Nil =>
+            setEntry(entry.copy(value = lastOption))
+          case otherOptions =>
+            board = board.updated(entry.square, SodukoOptions(otherOptions))
+        }
       case _ =>
     }
 
