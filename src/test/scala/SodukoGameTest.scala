@@ -4,37 +4,69 @@ import org.specs2.specification.Scope
 class SodukoGameTest extends SpecificationWithJUnit {
 
   "SodukoGame" should {
-    "create soduko board game" in new Context {
-      var board: Map[Square, SodukoEntry] = Map()
+    "solve a game board" in new Context {
+      val board = new SodukoBoard()
+      board.setEntries(
+        Entry(Square(0,0), SodukoVal(6)),
+        Entry(Square(0,2), SodukoVal(8)),
+        Entry(Square(0,3), SodukoVal(5)),
+        Entry(Square(0,8), SodukoVal(3)),
+        Entry(Square(1,1), SodukoVal(2)),
+        Entry(Square(1,4), SodukoVal(3)),
+        Entry(Square(1,7), SodukoVal(8)),
+        Entry(Square(2,2), SodukoVal(3)),
+        Entry(Square(2,3), SodukoVal(4)),
+        Entry(Square(2,6), SodukoVal(1)),
+        Entry(Square(2,8), SodukoVal(2)),
+        Entry(Square(3,0), SodukoVal(1)),
+        Entry(Square(3,5), SodukoVal(8)),
+        Entry(Square(3,8), SodukoVal(9)),
+        Entry(Square(4,1), SodukoVal(4)),
+        Entry(Square(4,7), SodukoVal(3)),
+        Entry(Square(5,0), SodukoVal(8)),
+        Entry(Square(5,2), SodukoVal(5)),
+        Entry(Square(5,3), SodukoVal(7)),
+        Entry(Square(5,5), SodukoVal(3)),
+        Entry(Square(5,8), SodukoVal(4)),
+        Entry(Square(6,0), SodukoVal(2)),
+        Entry(Square(6,2), SodukoVal(4)),
+        Entry(Square(6,5), SodukoVal(1)),
+        Entry(Square(6,6), SodukoVal(9)),
+        Entry(Square(7,1), SodukoVal(9)),
+        Entry(Square(7,4), SodukoVal(5)),
+        Entry(Square(7,7), SodukoVal(2)),
+        Entry(Square(8,0), SodukoVal(3)),
+        Entry(Square(8,3), SodukoVal(9)),
+        Entry(Square(8,6), SodukoVal(6)),
+        Entry(Square(8,8), SodukoVal(5))
+      )
+      
+      game.isSolved(board) must beFalse
 
-      for (
-        i <- 0 until 9;
-        j <- 0 until 9
-      ) yield (i, j) match {
-        case (0,0) => board = board.updated(Square(0, 0), sodukoVal)
-        case (k, 0) => board = board.updated(Square(k, 0), SodukoOptions((1 to 8).map(SodukoVal)))
-        case (0, k) => board = board.updated(Square(0, k), SodukoOptions((1 to 8).map(SodukoVal)))
-        case (n, m) if n < 3 && m < 3 => board = board.updated(Square(n,m), SodukoOptions((1 to 8).map(SodukoVal)))
-        case (n, m) => board = board.updated(Square(n,m) ,SodukoOptions((1 to 9).map(SodukoVal)))
-      }
+      game.solveGame(board)
 
-      game.toString must beEqualTo(new SodukoBoard(board).toString)
+      game.isSolved(board) must beTrue
     }
   }
 
   "soduko solution" should {
     "return false" in new Context {
-      game.isSolved must beFalse
+      val board = new SodukoBoard()
+      board.setEntry(Entry(Square(0,0),sodukoVal))
+      
+      game.isSolved(board) must beFalse
     }
 
     "return true" in new Context {
-      solvedGame.isSolved must beTrue
+      val solvedBoard = new SodukoBoard()
+      solvedBoard.setEntries(entries: _*)
+      
+      game.isSolved(solvedBoard) must beTrue
     }
   }
 
   abstract class Context extends Scope {
     val sodukoVal = SodukoVal(9)
-    val game = new SodukoGame(Entry(Square(0,0),sodukoVal))
 
     val values = (1 to 9).map(SodukoVal)
 
@@ -42,6 +74,6 @@ class SodukoGameTest extends SpecificationWithJUnit {
       (0 until 3).flatMap( k =>
       (0 until 9).map(j => Entry(Square(i * 3 + k, j), values((i + k * 3 + j) % 9)))))
 
-    val solvedGame = new SodukoGame(entries: _*)
+    val game = new SodukoGame()
   }
 }

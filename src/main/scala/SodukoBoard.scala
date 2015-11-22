@@ -1,4 +1,4 @@
-class SodukoBoard(private var board: Map[Square, SodukoEntry] = Map()) {
+case class SodukoBoard(private var board: Map[Square, SodukoEntry] = Map()) {
 
   val seed = 3
   val boardSize = seed * seed
@@ -59,6 +59,17 @@ class SodukoBoard(private var board: Map[Square, SodukoEntry] = Map()) {
         i <- square.row until square.row + seed;
         j <- square.col until square.col + seed
       ) yield getEntry(Square(i,j)).getValue)
+  }
+
+  def getNextEntryWithSudokuOptions: Option[EntryOptions] = {
+    board
+      .find { case (_, sudokuEntry) =>
+      sudokuEntry match {
+        case options: SodukoOptions => true
+        case _ => false
+      }
+    }
+      .map { case (square, sudokuEntry) => EntryOptions(square, sudokuEntry.asInstanceOf[SodukoOptions])}
   }
 
   private def isValidSet(values: Seq[Option[Int]]) = values.filter(_.nonEmpty).map(_.get).toSet == set
